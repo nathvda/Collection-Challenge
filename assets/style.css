@@ -12,6 +12,7 @@ body {
   min-height: 100vh;
   font-family: inter;
   display: flex;
+  overflow-x: hidden;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -95,6 +96,7 @@ header h1 {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
   border-radius: 0.7em;
   position: relative;
+  transition: 0.1s;
 }
 #myCollection .groupItem h3 {
   width: 100%;
@@ -210,6 +212,17 @@ header h1 {
   header {
     width: 90vw;
   }
+  .groupItem:hover {
+    transform: scale(1.2);
+    position: relative;
+    z-index: 4;
+    transition: 0.1s;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+  .groupItem:hover h3 {
+    background-color: orange;
+  }
 }
 @media screen and (min-width: 1500px) {
   #myCollection {
@@ -218,5 +231,16 @@ header h1 {
   }
   header {
     width: 80vw;
+  }
+  .groupItem:hover {
+    transform: scale(1.2);
+    position: relative;
+    z-index: 4;
+    transition: 0.1s;
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+  }
+  .groupItem:hover h3 {
+    background-color: orange;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -17,6 +17,7 @@ body{
     min-height:100vh;
     font-family:inter;
     display:flex;
+    overflow-x:hidden;
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
@@ -110,6 +111,7 @@ header{
             box-shadow:0 0 1em rgba(0,0,0,0.1);
             border-radius:0.7em;
             position:relative;
+            transition:0.1s;
 
             h3{
             width:100%;
@@ -229,6 +231,7 @@ header{
 
 }
 
+
 @media screen and (min-width:800px){
     
     #myCollection{
@@ -240,7 +243,18 @@ header{
         width:90vw;
     }
 
+    .groupItem:hover{
+        transform:scale(1.2);
+        position:relative;
+        z-index:4;
+        transition:0.1s;
+        backdrop-filter:blur(20px);
+      
 
+        h3{
+            background-color:orange;
+        }
+    }
 }
 
 
@@ -257,5 +271,17 @@ header{
     }
 
 
+    .groupItem:hover{
+        transform:scale(1.2);
+        position:relative;
+        z-index:4;
+        transition:0.1s;
+        backdrop-filter:blur(20px);
+      
+
+        h3{
+            background-color:orange;
+        }
+    }
 }
 

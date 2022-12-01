@@ -161,33 +161,20 @@ const KpopGroups = [
 
 ];
 
-
 let container = document.getElementById("myCollection");
-
-/*function createCard(b){
-    
-}*/
 
 document.getElementById("numberGroup").innerHTML = KpopGroups.length;
 
-/*function hideBoyGroups(){
-    let toBeHidden = document.querySelectorAll(".masc");
-   
-   for (elem of toBeHidden){
-    elem.classList.toggle("unshown");
-   } 
-}*/
-
 function hideGirlGroups(){
   
- let element = document.querySelector('input[name="display"]:checked').value;
-
+ let element = document.querySelector('input[name="display"]:checked').value; 
 switch(element){
 
     case "all":
-    console.log("I show all");
+    let i = 0;
     for(elem of container.children){
-      (elem.classList.contains("masc") ||  elem.classList.contains("fem")) ? elem.style.display = "flex" :
+       i++;
+      (elem.classList.contains("masc") || elem.classList.contains("fem")) ? elem.style.display = "flex" :
       elem.style.display = "none";
     }    
     break;
@@ -195,18 +182,13 @@ switch(element){
     for(elem of container.children){
             elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
           }      
-    console.log("I show women");
     break;
     case "masc":
         for(elem of container.children){
             elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
           }  
-    console.log("I show men");
     break;
-
-}
-
-
+ }
 }
 
 
@@ -261,6 +243,15 @@ groupContent.innerHTML = `
 <li><b>Année de début: </b>${KpopGroups[group]["debutYear"]}</li>
 <li><b>Type: </b>${KpopGroups[group]["type"]}</li>`;
 
+/*const tableau = ["agency","debutYear","type"];
+
+for(elem of tableau){
+    let listItem = document.createElement("li");
+    let plop = document.createTextNode(KpopGroups[group][elem]);
+    listItem.appendChild(plop);
+    groupContent.appendChild(listItem);
+}*/
+
 groupName.appendChild(groupNameText);
 groupMemberWrap.appendChild(groupMembers);
 groupBox.appendChild(groupName);
@@ -269,6 +260,23 @@ groupBox.appendChild(groupContent);
 groupBox.appendChild(groupMemberWrap);
 container.appendChild(groupBox);
 }
+let newtable = container.children;
+for (elem of newtable){
+ elem.style.opacity = `0`;
+ elem.style.transition = '0.5s';
+ }
 
+window.addEventListener('load', function(){
 
+let newtable = container.children;
+container.style.position = `relative`; 
 
+for (let i = 0 ; i < newtable.length ; i++){
+       setTimeout(() => {
+    newtable[i].style.opacity = `1`;
+    
+       } , (100 * i));
+       console.log(i);
+} 
+
+});
