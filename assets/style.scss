@@ -1,0 +1,41 @@
+$primary : hsla(240, 65%, 73%, 0.603);
+
+html, body, li, ol, ul, h1, h2, h3{
+    padding:0;
+    margin:0;
+}
+
+li, ol, ul{
+    list-style-type: none;
+}
+
+body{
+    font-size:18px;
+}
+
+#myCollection{
+            display:grid;
+            grid-gap:1em;
+
+
+        .groupItem{
+            width:100vw;
+            overflow:hidden;
+            background-color: hsla(240, 12%, 87%, 0.603);
+            display:flex;
+            flex-direction: column;
+
+            h3{
+            width:100%;
+            text-align:center;
+            background-color:$primary;
+        }
+            
+            img{
+                height:8em;
+                width:8em;
+                object-fit:cover;
+                border-radius:100px;
+            }
+        }
+}

@@ -1,0 +1,36 @@
+html, body, li, ol, ul, h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+li, ol, ul {
+  list-style-type: none;
+}
+
+body {
+  font-size: 18px;
+}
+
+#myCollection {
+  display: grid;
+  grid-gap: 1em;
+}
+#myCollection .groupItem {
+  width: 100vw;
+  overflow: hidden;
+  background-color: hsla(240deg, 12%, 87%, 0.603);
+  display: flex;
+  flex-direction: column;
+}
+#myCollection .groupItem h3 {
+  width: 100%;
+  text-align: center;
+  background-color: hsla(240deg, 65%, 73%, 0.603);
+}
+#myCollection .groupItem img {
+  height: 8em;
+  width: 8em;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 100px;
+}/*# sourceMappingURL=style.css.map */
