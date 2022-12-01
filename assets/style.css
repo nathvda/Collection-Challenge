@@ -15,7 +15,9 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-image: linear-gradient(hsl(0deg, 0%, 83%), hsla(0deg, 0%, 100%, 0.589));
+  background-image: linear-gradient(hsl(0deg, 0%, 83%), hsla(0deg, 0%, 100%, 0.589)), url(./images/Background.svg);
+  background-size: cover;
+  background-attachment: fixed;
   padding: 2em;
 }
 
@@ -63,8 +65,8 @@ header .buttonbox button {
 }
 header .buttonbox button:active {
   position: relative;
-  background-color: rgb(0, 204, 255);
-  box-shadow: 0px 0.5em 0 rgb(23, 123, 180);
+  background-color: hsl(192deg, 100%, 50%);
+  box-shadow: 0px 0.5em 0 hsl(202deg, 77%, 40%);
   color: white;
   transition: 0.4s;
 }
@@ -98,6 +100,9 @@ header h1 {
   font-weight: 900;
   padding: 1em;
   font-size: 1.4em;
+  background-image: url(./images/Background.svg);
+  background-size: cover;
+  background-position: bottom;
 }
 #myCollection .groupItem .groupContent {
   padding: 1em;
@@ -146,7 +151,7 @@ header h1 {
   height: -moz-fit-content;
   height: fit-content;
   position: absolute;
-  transition: 2s;
+  transition: 0.5s;
   bottom: 0;
   right: 0;
   left: 0;
@@ -154,7 +159,7 @@ header h1 {
 #myCollection .groupItem .hidden {
   height: 0;
   overflow: hidden;
-  transition: 2s;
+  transition: 0.5s;
 }
 #myCollection .groupItem button {
   position: absolute;
@@ -166,7 +171,7 @@ header h1 {
   border: none;
   padding: 0.8em;
   border-radius: 100px;
-  background-color: hsla(0deg, 0%, 0%, 0.15);
+  background-color: hsl(202deg, 72%, 56%);
   color: white;
   box-shadow: 0px 0.5em 0 rgb(23, 123, 180);
   font-weight: 900;
@@ -184,7 +189,7 @@ header h1 {
   border: none;
   padding: 0.8em;
   border-radius: 100px;
-  background-color: hsla(0deg, 0%, 0%, 0.15);
+  background-color: hsl(192deg, 100%, 50%);
   box-shadow: 0px 0.1em 0 rgb(23, 123, 180);
   color: white;
   transition: 0.4s;
