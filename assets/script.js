@@ -105,7 +105,7 @@ const KpopGroups = [
         picture : "./assets/images/everglow.jpg",
         type : "Groupe féminin",
         members : [ 
-            "Yien", 
+            "Yiren", 
             "Aisha",
             "Sihyeon",
             "Onda",
@@ -174,8 +174,7 @@ switch(element){
     let i = 0;
     for(elem of container.children){
        i++;
-      (elem.classList.contains("masc") || elem.classList.contains("fem")) ? elem.style.display = "flex" :
-      elem.style.display = "none";
+      elem.style.display = "flex";
     }    
     break;
     case "fem":
