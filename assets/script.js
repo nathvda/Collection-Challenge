@@ -242,15 +242,6 @@ groupContent.innerHTML = `
 <li><b>Année de début: </b>${KpopGroups[group]["debutYear"]}</li>
 <li><b>Type: </b>${KpopGroups[group]["type"]}</li>`;
 
-/*const tableau = ["agency","debutYear","type"];
-
-for(elem of tableau){
-    let listItem = document.createElement("li");
-    let plop = document.createTextNode(KpopGroups[group][elem]);
-    listItem.appendChild(plop);
-    groupContent.appendChild(listItem);
-}*/
-
 groupName.appendChild(groupNameText);
 groupMemberWrap.appendChild(groupMembers);
 groupBox.appendChild(groupName);
@@ -279,3 +270,24 @@ for (let i = 0 ; i < newtable.length ; i++){
 } 
 
 });
+
+/* 
+let containchild = container.children;
+for (let i = 0 ; i < newtable.length ; i++){
+window.addEventListener('mouseover', function(event){
+    var posX = event.clientX;
+    var posY = event.clientY;
+
+    container.style.position = `relative`; 
+    
+console.log(newtable[i].style.width.value);
+    
+        if ( posX < 600 && posY < 400){
+            newtable[i].style.transform = `rotateY(30deg) rotateX(-30deg)`;
+        } else if ( posX > 1800 && posY < 400) { newtable[i].style.transform = `rotateY(30deg) rotateX(30deg)`;}
+        else if ( posX > 1800 && posY > 400) { newtable[i].style.transform = `rotateY(30deg) rotateX(-30deg)`;}
+     else if ( posX < 1800 && posY > 400) { newtable[i].style.transform = `rotateY(-30deg) rotateX(-30deg)`;}
+    else { newtable[i].style.transform = `rotateY(0deg) rotateX(0deg)`;}
+   
+});
+ };*/
