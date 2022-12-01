@@ -17,10 +17,14 @@
        
         <p>Welcome to this page where I will share with you the groups I like to listen.
              There are currently <span id="numberGroup"></span> groups displayed on this page.</p>
-            <div class="buttonbox">
-                <button onclick="hideGirlGroups()">Hide girlgroups</button>
-                <button onclick="hideBoyGroups()">Hide boygroups</button>
-            </div>
+            <form class="buttonbox" name="display" onclick="hideGirlGroups()">
+                <label for="all">Tous</label>
+                <input name="display" id="all" type="radio" value="all">
+                <label for="fem">Groupes féminins</label>
+                <input name="display" id="fem" type="radio" value="fem">
+                <label for="masc">Groupes masculins</label>
+                <input name="display" id="masc" type="radio" value="masc">
+            </form>
     </header>
 
     <article id="myCollection"></article>

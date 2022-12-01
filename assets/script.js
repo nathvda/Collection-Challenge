@@ -170,20 +170,43 @@ let container = document.getElementById("myCollection");
 
 document.getElementById("numberGroup").innerHTML = KpopGroups.length;
 
-function hideBoyGroups(){
+/*function hideBoyGroups(){
     let toBeHidden = document.querySelectorAll(".masc");
    
    for (elem of toBeHidden){
     elem.classList.toggle("unshown");
    } 
-}
+}*/
 
 function hideGirlGroups(){
-    let toBeHidden = document.querySelectorAll(".fem");
-   
-   for (elem of toBeHidden){
-    elem.classList.toggle("unshown");
-   } 
+  
+ let element = document.querySelector('input[name="display"]:checked').value;
+
+switch(element){
+
+    case "all":
+    console.log("I show all");
+    for(elem of container.children){
+      (elem.classList.contains("masc") ||  elem.classList.contains("fem")) ? elem.style.display = "flex" :
+      elem.style.display = "none";
+    }    
+    break;
+    case "fem":
+    for(elem of container.children){
+            elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
+          }      
+    console.log("I show women");
+    break;
+    case "masc":
+        for(elem of container.children){
+            elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
+          }  
+    console.log("I show men");
+    break;
+
+}
+
+
 }
 
 
