@@ -158,6 +158,7 @@ const KpopGroups = [
             "Woojin",
         ],
     },
+
 ];
 
 
@@ -169,6 +170,23 @@ let container = document.getElementById("myCollection");
 
 document.getElementById("numberGroup").innerHTML = KpopGroups.length;
 
+function hideBoyGroups(){
+    let toBeHidden = document.querySelectorAll(".masc");
+   
+   for (elem of toBeHidden){
+    elem.classList.toggle("unshown");
+   } 
+}
+
+function hideGirlGroups(){
+    let toBeHidden = document.querySelectorAll(".fem");
+   
+   for (elem of toBeHidden){
+    elem.classList.toggle("unshown");
+   } 
+}
+
+
 for (group in KpopGroups){
 
 let groupBox = document.createElement("section");
@@ -178,8 +196,20 @@ let groupImage = document.createElement("img");
 let groupContent = document.createElement("ul");
 let groupMembers = document.createElement("ul");
 
+let groupButton = document.createElement("button");
+let buttonText = document.createTextNode("Voir les membres");
+
+
 groupBox.classList.add("groupItem");
 groupMembers.classList.add("members");
+groupMembers.classList.add("hidden");
+
+groupButton.addEventListener('click', () => {
+    groupMembers.classList.toggle("hidden");
+});
+
+groupButton.appendChild(buttonText);
+groupBox.appendChild(groupButton);
 
 if (KpopGroups[group]["type"] === "Groupe féminin"){
     groupBox.classList.add("fem");

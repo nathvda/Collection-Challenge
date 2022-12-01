@@ -9,28 +9,64 @@ li, ol, ul {
 
 body {
   font-size: 18px;
+  min-height: 100vh;
   font-family: inter;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background-image: linear-gradient(hsl(0deg, 0%, 83%), hsla(0deg, 0%, 100%, 0.589));
+  padding: 2em;
 }
 
 header {
-  background-color: hsla(240deg, 12%, 87%, 0.603);
+  background-color: hsla(0deg, 0%, 100%, 0.589);
   color: hsl(0deg, 0%, 27%);
   box-sizing: border-box;
   padding: 2em;
   text-align: justify;
   font-size: 0.9em;
+  margin-bottom: 2em;
+  border: radius 0.7em;
+  position: relative;
+  width: 100vw;
 }
 header img {
   float: left;
   margin-right: 2em;
 }
+header .buttonbox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  grid-gap: 2em;
+}
+header .buttonbox button {
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  padding: 0.8em;
+  border-radius: 100px;
+  background-color: hsl(202deg, 72%, 56%);
+  color: white;
+  box-shadow: 0px 0.5em 0 rgb(23, 123, 180);
+  font-weight: 900;
+  font-family: inter;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+header .buttonbox button:active {
+  position: relative;
+  background-color: rgb(0, 204, 255);
+  box-shadow: 0px 0.5em 0 rgb(23, 123, 180);
+  color: white;
+  transition: 0.4s;
+}
 header h1 {
-  color: hsla(240deg, 65%, 73%, 0.603);
-  text-shadow: 5px 5px 0 white;
+  color: hsl(202deg, 72%, 56%);
+  text-shadow: 2px 2px 0 white;
   letter-spacing: -2px;
   font-size: 1.8em;
 }
@@ -43,14 +79,17 @@ header h1 {
 #myCollection .groupItem {
   width: 100%;
   overflow: hidden;
-  background-color: hsla(240deg, 12%, 87%, 0.603);
+  background-color: hsla(0deg, 0%, 100%, 0.589);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  border-radius: 0.7em;
+  position: relative;
 }
 #myCollection .groupItem h3 {
   width: 100%;
   text-align: left;
-  background-color: hsla(240deg, 65%, 73%, 0.603);
+  background-color: hsl(202deg, 72%, 56%);
   color: white;
   font-weight: 900;
   padding: 1em;
@@ -60,7 +99,7 @@ header h1 {
   padding: 1em;
   font-size: 0.8em;
   color: hsl(0deg, 0%, 27%);
-  background-color: hsla(240deg, 12%, 87%, 0.603);
+  background-color: hsla(0deg, 0%, 100%, 0.589);
 }
 #myCollection .groupItem img {
   height: 8em;
@@ -75,14 +114,67 @@ header h1 {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
   padding: 1em;
+  position: absolute;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  transform: translateY(0em);
+  transition: 2s;
 }
 #myCollection .groupItem .members li {
-  background-color: hsla(240deg, 65%, 73%, 0.603);
+  background-color: hsl(202deg, 72%, 56%);
   text-align: center;
   color: white;
   border-radius: 5px;
   font-size: 0.8em;
   padding: 0.4em;
+}
+#myCollection .groupItem .hidden {
+  height: 0;
+  overflow: hidden;
+  transform: translateY(2em);
+  transition: 2s;
+}
+#myCollection .groupItem button {
+  position: absolute;
+  right: 2em;
+  top: 1.5em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  padding: 0.8em;
+  border-radius: 100px;
+  background-color: hsla(0deg, 0%, 0%, 0.15);
+  color: white;
+  box-shadow: 0px 0.5em 0 rgb(23, 123, 180);
+  font-weight: 900;
+  font-family: inter;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+#myCollection .groupItem button:active {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  padding: 0.8em;
+  border-radius: 100px;
+  background-color: hsla(0deg, 0%, 0%, 0.15);
+  box-shadow: 0px 0.1em 0 rgb(23, 123, 180);
+  color: white;
+  transition: 0.4s;
+}
+#myCollection .unshown {
+  display: none;
 }
 
 @media screen and (min-width: 800px) {
