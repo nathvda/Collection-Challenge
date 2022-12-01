@@ -124,7 +124,7 @@ const KpopGroups = [
             "Felix",
             "Bang Chan",
             "Lee Know",
-            "I;N",
+            "IN",
             "Han",
             "Seungmin",
             "Changbin",
@@ -195,17 +195,19 @@ let groupNameText = document.createTextNode(`${KpopGroups[group]["name"]}`);
 let groupImage = document.createElement("img");
 let groupContent = document.createElement("ul");
 let groupMembers = document.createElement("ul");
-
+let groupMemberWrap = document.createElement("div");
 let groupButton = document.createElement("button");
 let buttonText = document.createTextNode("Voir les membres");
 
 
 groupBox.classList.add("groupItem");
 groupMembers.classList.add("members");
-groupMembers.classList.add("hidden");
+groupMemberWrap.classList.add("hidden");
+groupMemberWrap.classList.add("box");
+
 
 groupButton.addEventListener('click', () => {
-    groupMembers.classList.toggle("hidden");
+    groupMemberWrap.classList.toggle("hidden");
 });
 
 groupButton.appendChild(buttonText);
@@ -237,11 +239,11 @@ groupContent.innerHTML = `
 <li><b>Type: </b>${KpopGroups[group]["type"]}</li>`;
 
 groupName.appendChild(groupNameText);
-
+groupMemberWrap.appendChild(groupMembers);
 groupBox.appendChild(groupName);
 groupBox.appendChild(groupImage);
 groupBox.appendChild(groupContent);
-groupBox.appendChild(groupMembers);
+groupBox.appendChild(groupMemberWrap);
 container.appendChild(groupBox);
 }
 

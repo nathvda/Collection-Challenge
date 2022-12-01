@@ -27,13 +27,17 @@ header {
   text-align: justify;
   font-size: 0.9em;
   margin-bottom: 2em;
-  border: radius 0.7em;
+  border-radius: 0.7em;
   position: relative;
   width: 100vw;
 }
 header img {
   float: left;
   margin-right: 2em;
+}
+header #numberGroup {
+  color: hsl(202deg, 72%, 56%);
+  font-weight: 900;
 }
 header .buttonbox {
   display: grid;
@@ -112,17 +116,18 @@ header h1 {
 #myCollection .groupItem .members {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, -webkit-fit-content);
+  grid-template-rows: repeat(auto, fit-content);
   grid-gap: 1em;
   padding: 1em;
-  position: absolute;
   background-color: white;
   bottom: 0;
   left: 0;
   right: 0;
   overflow: hidden;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   transform: translateY(0em);
   transition: 2s;
 }
@@ -133,11 +138,22 @@ header h1 {
   border-radius: 5px;
   font-size: 0.8em;
   padding: 0.4em;
+  height: 1.5em;
+  line-height: 1.5;
+}
+#myCollection .groupItem .box {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  transition: 2s;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 #myCollection .groupItem .hidden {
   height: 0;
   overflow: hidden;
-  transform: translateY(2em);
   transition: 2s;
 }
 #myCollection .groupItem button {

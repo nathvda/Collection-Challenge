@@ -32,7 +32,7 @@ header{
     text-align:justify;
     font-size:0.9em;
     margin-bottom:2em;
-    border: radius 0.7em;
+    border-radius: 0.7em;
     position:relative;
     width:100vw;
 
@@ -40,6 +40,12 @@ header{
         float:left;
         margin-right:2em;
     }
+
+    #numberGroup{
+        color:$primary;
+        font-weight:900;
+    }
+
 
     .buttonbox{
         display:grid;
@@ -128,15 +134,15 @@ header{
             .members{
                 display:grid;
                 grid-template-columns: repeat(3,1fr);
+                grid-template-rows: repeat(auto, fit-content);
                 grid-gap:1em;
                 padding:1em;
-                position:absolute;
                 background-color:white;
                 bottom:0;
                 left:0;
                 right:0;
                 overflow:hidden;
-                height:min-content;
+                min-height:fit-content;
                 transform:translateY(0em);
                 transition:2s;
                 
@@ -148,14 +154,24 @@ header{
                     border-radius:5px;
                     font-size:0.8em;
                     padding:0.4em;
+                    height:1.5em;
+                    line-height:1.5;
                     }
               
+            }
+
+            .box{
+                height:fit-content;
+                position:absolute;
+                transition:2s;
+                bottom:0;
+                right:0;
+                left:0;
             }
 
             .hidden{
             height:0;
             overflow:hidden;
-            transform:translateY(2em);
             transition:2s;
     }
 
