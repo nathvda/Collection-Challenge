@@ -254,6 +254,11 @@ header h1 {
     background-color: orange;
   }
 }
+#addingNew {
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (min-width: 1800px) {
   #myCollection {
     grid-template-columns: repeat(4, 1fr);
