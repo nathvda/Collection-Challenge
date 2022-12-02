@@ -12,6 +12,7 @@ const KpopGroups = [
             "Seulgi",
             "Joy"
         ],
+        sampleSong : "./assets/songs/redvelvet.mp3",
     },
     { 
         name : "Ateez",
@@ -29,7 +30,8 @@ const KpopGroups = [
             "Seonghwa",
             "Wooyoung"
         ],
-    },
+        sampleSong : "./assets/songs/ateez.mp3",
+     },
     { 
         name : "Monsta X",
         agency : "Starship",
@@ -43,6 +45,7 @@ const KpopGroups = [
             "Shownu",
             "IM",
         ],
+        sampleSong : "./assets/songs/monstax.mp3",
     }, 
      { 
         name : "Twice",
@@ -61,6 +64,7 @@ const KpopGroups = [
             "Chaeyoung",
             "Dahyun"
         ],
+        sampleSong : "./assets/songs/twice.mp3",
     },
     { 
         name : "Mamamoo",
@@ -74,6 +78,7 @@ const KpopGroups = [
             "Moonbyul",
             "Solar",
         ],
+        sampleSong : "./assets/songs/mamamoo.mp3",
     },
     { 
         name : "Seventeen",
@@ -97,6 +102,7 @@ const KpopGroups = [
             "Seungkwan",
             "Dino"
         ],
+        sampleSong : "./assets/songs/seventeen.mp3",
     }, 
     { 
         name : "Everglow",
@@ -112,6 +118,7 @@ const KpopGroups = [
             "Mia",
             "E:U",
         ],
+        sampleSong : "./assets/songs/everglow.mp3",
     },
     { 
         name : "Stray Kids",
@@ -129,6 +136,7 @@ const KpopGroups = [
             "Seungmin",
             "Changbin",
         ],
+        sampleSong : "./assets/songs/skz.mp3",
     },
     { 
         name : "Oneus",
@@ -144,6 +152,7 @@ const KpopGroups = [
             "Keonhee",
             "Ravn"
         ],
+        sampleSong : "./assets/songs/oneus.mp3",
     },
     { 
         name : "Ab6ix",
@@ -157,6 +166,7 @@ const KpopGroups = [
             "Daehwi",
             "Woojin",
         ],
+        sampleSong : "./assets/songs/ab6ix.mp3",
     },
 
 ];
@@ -200,15 +210,48 @@ let groupImage = document.createElement("img");
 let groupContent = document.createElement("ul");
 let groupMembers = document.createElement("ul");
 let groupMemberWrap = document.createElement("div");
+
 let groupButton = document.createElement("button");
 let buttonText = document.createTextNode("Voir les membres");
+groupButton.classList.add("showMember");
 
+let songSample = document.createElement("audio");
+let musicplayer = document.createElement("button");
+
+
+musicplayer.innerHTML = `<i class="bi bi-play-fill"></i>`;
+groupBox.appendChild(musicplayer);
+
+musicplayer.classList.add("player");
+
+songSample.src = `${KpopGroups[group]["sampleSong"]}`;
+songSample.setAttribute("data-song",`${KpopGroups[group]["name"]}`);
+
+groupBox.appendChild(songSample);
 
 groupBox.classList.add("groupItem");
 groupMembers.classList.add("members");
 groupMemberWrap.classList.add("hidden");
 groupMemberWrap.classList.add("box");
 
+musicplayer.addEventListener('click', () => {
+    
+    let songPlaying = document.getElementsByTagName("audio");
+    for (elem of songPlaying){
+       if (!elem.paused){
+        elem.pause();
+        elem.currentTime = 0;
+       } 
+       musicplayer.style.animation = `none`;
+    }
+   
+    songSample.play();
+    musicplayer.style.animation = `bouncing 0.5s ease-in infinite`;
+
+    setTimeout(() => { songSample.pause();
+    songSample.currentTime = 0;
+    musicplayer.style.animation = `none`; }, 10000 );
+});
 
 groupButton.addEventListener('click', () => {
     groupMemberWrap.classList.toggle("hidden");
@@ -266,8 +309,7 @@ for (let i = 0 ; i < newtable.length ; i++){
     newtable[i].style.opacity = `1`;
     
        } , (100 * i));
-       console.log(i);
-} 
+    } 
 
 });
 
