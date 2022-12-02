@@ -254,6 +254,19 @@ header h1 {
     background-color: orange;
   }
 }
+.addbutton {
+  position: fixed;
+  right: 3rem;
+  top: 3rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100px;
+  border: 0;
+  background-color: hsl(202deg, 72%, 56%);
+  color: white;
+  font-size: 2em;
+}
+
 #addingNew {
   display: flex;
   flex-direction: column;
@@ -269,8 +282,10 @@ header h1 {
   padding-bottom: 4em;
   z-index: 99;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   box-shadow: #b4c8d6 0 0 20px;
+  transition: 1s;
 }
 #addingNew label {
   font-weight: bold;
@@ -294,17 +309,34 @@ header h1 {
   padding: 1em;
   border-radius: 0.5em;
 }
-#addingNew button:nth-of-type(1) {
+#addingNew button {
+  background-color: hsl(202deg, 72%, 56%);
+  border: 0;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: inter;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: absolute;
-  width: 100px;
   bottom: 1em;
+}
+#addingNew button:active {
+  background-color: rgb(0, 204, 255);
+}
+#addingNew button:nth-of-type(1) {
   left: 1em;
 }
 #addingNew button:nth-of-type(2) {
-  position: absolute;
-  width: 100px;
-  bottom: 1em;
   right: 1em;
+}
+
+#addingNew.slider {
+  left: 200%;
+  transform: translateX(-50%) translateY(-50%);
 }
 
 @media screen and (min-width: 1800px) {

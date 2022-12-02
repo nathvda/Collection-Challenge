@@ -1,4 +1,4 @@
-const KpopGroups = [ 
+let KpopGroups = [ 
     { 
         name : "Red Velvet",
         agency : "SM Entertainment",
@@ -173,9 +173,9 @@ const KpopGroups = [
 
 let container = document.getElementById("myCollection");
 
-document.getElementById("numberGroup").innerHTML = KpopGroups.length;
 
-function hideGirlGroups(){
+// allows user to toggle between different criteria 
+function groupSelector(){
   
  let element = document.querySelector('input[name="display"]:checked').value; 
 switch(element){
@@ -199,6 +199,19 @@ switch(element){
     break;
  }
 }
+
+function showForm(){
+    document.getElementById("addingNew").classList.toggle('slider');
+}
+
+function loadGroups(){
+
+
+    let loadingGroup = localStorage.getItem("MyCollection");
+    console.log(loadingGroup);
+
+    KpopGroups = JSON.parse(loadingGroup);
+    document.getElementById("numberGroup").innerHTML = KpopGroups.length;
 
 
 for (group in KpopGroups){
@@ -299,7 +312,11 @@ for (elem of newtable){
  elem.style.transition = '0.5s';
  }
 
+}
+
 window.addEventListener('load', function(){
+
+loadGroups();
 
 let newtable = container.children;
 container.style.position = `relative`; 
@@ -313,8 +330,7 @@ for (let i = 0 ; i < newtable.length ; i++){
 
 });
 
-/* 
-let containchild = container.children;
+/*let containchild = container.children;
 for (let i = 0 ; i < newtable.length ; i++){
 window.addEventListener('mouseover', function(event){
     var posX = event.clientX;
@@ -328,7 +344,7 @@ console.log(newtable[i].style.width.value);
             newtable[i].style.transform = `rotateY(30deg) rotateX(-30deg)`;
         } else if ( posX > 1800 && posY < 400) { newtable[i].style.transform = `rotateY(30deg) rotateX(30deg)`;}
         else if ( posX > 1800 && posY > 400) { newtable[i].style.transform = `rotateY(30deg) rotateX(-30deg)`;}
-     else if ( posX < 1800 && posY > 400) { newtable[i].style.transform = `rotateY(-30deg) rotateX(-30deg)`;}
+     else if ( posX < 600 && posY > 400) { newtable[i].style.transform = `rotateY(-30deg) rotateX(-30deg)`;}
     else { newtable[i].style.transform = `rotateY(0deg) rotateX(0deg)`;}
    
 });
@@ -341,56 +357,68 @@ console.log(newtable[i].style.width.value);
  let typeGroupe = document.querySelector('input[name="addType"]:checked').value;
  let nbrMembres = document.getElementById("nbrMembres").value;
  let nbrCaptor = document.getElementById("nbrMembres");
- let champMembres = document.getElementById("fieldMembres");
  let musicImport = document.getElementById("musicImport").value;
+ let membersToAdd = document.getElementById("membersToAdd"); 
 
-
-  nbrCaptor.addEventListener('click', () => { 
-   
-    nbrMembres = document.getElementById("nbrMembres").value;
-    let longueur = membersToAdd.querySelectorAll("input").length;
+nbrCaptor.addEventListener('change', () => { 
     
-    for ( let i = longueur ; i < nbrMembres ; i++ ){
-        let membersToAdd = document.getElementById("membersToAdd");
+    membersToAdd.innerHTML = "";
+    
+    let longueur = membersToAdd.querySelectorAll("input").length;
+    nbrMembres = document.getElementById("nbrMembres").value;    
+    
+    if( nbrMembres > 0){
+   
+    for ( let i = 0 ; i < nbrMembres ; i++ ){
+        membersToAdd = document.getElementById("membersToAdd");
 
-        if(nbrMembres > 0 && (longueur-1) < nbrMembres){
-            let contentMemberToAdd = document.createElement("div");
+        let contentMemberToAdd = document.createElement("div");
             let memberAdding = document.createElement("input");
             let youhou = document.createElement("label");
             let youhouText = document.createTextNode(`Membre ${i+1}`);
            
             contentMemberToAdd.setAttribute("id",`box-${i}`);
             memberAdding.setAttribute("id",`member-${i}`);
+            memberAdding.setAttribute("type",`text`);
             youhou.setAttribute("for",`member-${i}`);
 
             youhou.appendChild(youhouText);
             contentMemberToAdd.appendChild(youhou);
             contentMemberToAdd.appendChild(memberAdding);
             membersToAdd.appendChild(contentMemberToAdd);
-            } else if (longueur > nbrMembres ) { 
-            
-            let wonderful = longueur;
+        }
+    }  else if ( nbrMembres < longueur ) { 
 
-            while (wonderful >= nbrMembres){
-                    wonderful--;
-                    let idol = document.getElementById(`box-${wonderful}`);
-                    console.log(idol);
-                    membersToAdd.removeChild(div);
-                    console.log(membersToAdd.length);
-                    
-                };
-        } 
-
-        longueur = membersToAdd.querySelectorAll("input").length;
-    };
+        while  (longueur > nbrMembres){
+               
+                let idol = document.getElementById(`box-${longueur}`);
+                idol.remove();
+                longueur = membersToAdd.querySelectorAll("input").length;
+                
+            }
+    } else if (nbrMembres === "0"){
+        return;
+    }
 
     }
  );
 
-
 window.addEventListener('click', () => {
-/*console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);})*/
+console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);}
+)
 
+function createMembers(){
+
+    let pokemon = membersToAdd.getElementsByTagName("div");
+    let Newmembers = [];
+    let membresAjoutes;
+
+    for (let i = 0 ; i < pokemon.length ; i++){
+    membresAjoutes = document.getElementById(`member-${i}`).value;
+    Newmembers.push(membresAjoutes);
+ } 
+ return Newmembers;
+}
 
 class NewGroup { 
     constructor(name, agency, debutYear, picture, type, members){
@@ -399,23 +427,35 @@ class NewGroup {
         this.debutYear = debutYear,
         this.picture = picture,
         this.type = type,
-        this.members = [ 
-            "Irene", 
-            "Wendy",
-            "Yeri",
-            "Seulgi",
-            "Joy"
-        ],
-        this.sampleSong = members
-}
+        this.members = members,
+        this.sampleSong = musicImport
+    }
 }
 
-let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, musicImport);
-console.log(what);}
-)
+function saveGroups(){
+    localStorage.setItem("MyCollection", JSON.stringify(KpopGroups));
 
-/*createMembers(m){
-    let members = [];
-    for (let i = 0 ; i < m ; i++){
+}
 
-}; */
+function addNewGroup(){
+    let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, createMembers(), musicImport);
+    console.log(what);
+    KpopGroups.push(what);
+
+    console.log(KpopGroups);
+    saveGroups();
+    let newtable = container.children;
+container.style.position = `relative`; 
+
+for (let i = 0 ; i < newtable.length ; i++){
+       setTimeout(() => {
+    newtable[i].style.opacity = `1`;
+    
+       } , (100 * i));
+    } 
+
+    
+
+}
+
+

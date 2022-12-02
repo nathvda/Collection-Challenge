@@ -16,9 +16,9 @@
        
         <h1>My Kpop Group Collection</h1>
     
-        <p>Welcome to this page where I will share with you the groups I like to listen.
+    <p>Welcome to this page where I will share with you the groups I like to listen.
              There are currently <span id="numberGroup"></span> groups displayed on this page.</p>
-            <form class="buttonbox" name="display" onclick="hideGirlGroups()">
+            <form class="buttonbox" name="display" onclick="groupSelector()">
                 <label for="all">Tous</label>
                 <input name="display" id="all" type="radio" value="all">
                 <label for="fem">Groupes féminins</label>
@@ -29,8 +29,8 @@
     </header>
 
     <article id="myCollection"></article>
-
-    <form id="addingNew">
+<button onclick="showForm();" class="addbutton"><i class="bi bi-patch-plus-fill"></i></button>
+    <form id="addingNew" class="slider">
         <label for="nomGroupe">Nom du groupe</label>
         <input type="text" id="nomGroupe"/>
         <label for="companyName">Nom de l'agence</label>
@@ -42,18 +42,19 @@
         <label for="typeGroupe">Type de groupe</label>
         <fieldset id="typeGroupe">
         <label for="addFem">Féminin</label>
-        <input type="radio" name="addType" id="addFem" value="fem" checked>
+        <input type="radio" name="addType" id="addFem" value="Groupe féminin" checked>
         <label for="addmasc">Masculin</label>
-        <input type="radio" name="addType" id="addmasc"value="masc">
+        <input type="radio" name="addType" id="addmasc"value="Groupe masculin">
         </fieldset>
         <label for="fieldMembres">Membres</label>
         <fieldset id="fieldMembres">
         <label for="nbrMembres">Nombre de membres</label>
         <input type="number" min="0" id="nbrMembres">
-        <div id="membersToAdd"></div></fieldset>
+        <div id="membersToAdd"></div>
+        </fieldset>
         <label for="musicImport">Extrait musical</label>
         <input type="file" id="musicImport" accept=".mp3">
-        <button type="button">Ajouter</button>
+        <button type="button" onclick="addNewGroup();">Ajouter</button>
         <button type="reset">Réinitialiser</button>
     </form>
 </body>
