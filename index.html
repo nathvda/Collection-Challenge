@@ -42,14 +42,15 @@
         <label for="typeGroupe">Type de groupe</label>
         <fieldset id="typeGroupe">
         <label for="addFem">Féminin</label>
-        <input type="radio" name="addType" id="addFem" value="fem">
+        <input type="radio" name="addType" id="addFem" value="fem" checked>
         <label for="addmasc">Masculin</label>
         <input type="radio" name="addType" id="addmasc"value="masc">
         </fieldset>
         <label for="fieldMembres">Membres</label>
         <fieldset id="fieldMembres">
         <label for="nbrMembres">Nombre de membres</label>
-        <input type="number" id="nbrMembres"></fieldset>
+        <input type="number" min="0" id="nbrMembres">
+        <div id="membersToAdd"></div></fieldset>
         <label for="musicImport">Extrait musical</label>
         <input type="file" id="musicImport" accept=".mp3">
         <button type="button">Ajouter</button>

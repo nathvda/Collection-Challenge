@@ -334,5 +334,74 @@ console.log(newtable[i].style.width.value);
 });
  };*/
 
+ let nomGroupe = document.getElementById("nomGroupe").value;
+ let companyName = document.getElementById("companyName").value;
+ let debutYear = document.getElementById("debutYear").value;
+ let lienPhoto = document.getElementById("companyName").value;
+ let typeGroupe = document.querySelector('input[name="addType"]:checked').value;
+ let nbrMembres = document.getElementById("nbrMembres").value;
+ let nbrCaptor = document.getElementById("nbrMembres");
+ let membersToAdd = document.getElementById("membersToAdd");
+ let champMembres = document.getElementById("fieldMembres");
+ let musicImport = document.getElementById("musicImport").value;
+
+ nbrCaptor.addEventListener('change', () => { 
+
+    let longueur = membersToAdd.querySelectorAll("input").length;
+
+        if(nbrMembres > 0 && longueur < nbrMembres ){
+            for ( let i = 0 ; i < nbrMembres ; i++ ){
+            let memberAdding = document.createElement("input");
+            memberAdding.setAttribute("id",`member-${i}`);
+            membersToAdd.appendChild(memberAdding);
+            };
+        }
+            else if (longueur > nbrMembres) { 
+
+                for ( let i = 0 ; i === (longueur-nbrMembres) ; i++ ){
+                    membersToAdd.removeChild(membersToAdd.lastChild);
+
+                    };
+        }
+
+    }
+ );
+
+
+
  
 
+
+
+
+ 
+
+window.addEventListener('click', () => {
+console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);})
+
+
+class NewGroup { 
+    constructor(name, agency, debutYear, picture, type, members){
+        this.name = name,
+        this.agency = agency,
+        this.debutYear = debutYear,
+        this.picture = picture,
+        this.type = type,
+        this.members = [ 
+            "Irene", 
+            "Wendy",
+            "Yeri",
+            "Seulgi",
+            "Joy"
+        ],
+        this.sampleSong = members
+}
+}
+
+let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, musicImport);
+console.log(what);
+/*createMembers(m){
+    let members = [];
+    for (let i = 0 ; i < m ; i++){
+
+}; */
