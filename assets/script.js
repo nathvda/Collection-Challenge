@@ -45,7 +45,7 @@ const KpopGroups = [
             "Shownu",
             "IM",
         ],
-        sampleSong : "./assets/songs/monstax.mp3",
+        sampleSong : "./assets/songs/monstaX.mp3",
     }, 
      { 
         name : "Twice",
@@ -333,3 +333,4 @@ console.log(newtable[i].style.width.value);
    
 });
  };*/
+
