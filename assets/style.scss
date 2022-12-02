@@ -280,16 +280,19 @@ header{
 #addingNew{
 display:flex;
 flex-direction:column;
-padding:1em;
+padding:2em;
 border-radius:0.5em;
 background-color:$secondary;
 backdrop-filter:blur(20px);
 font-size:14px;
 width:50vw;
-position:absolute;
+position:fixed;
 flex-wrap:wrap;
 padding-bottom:4em;
 z-index:99;
+top:50%;
+transform: translateY(-50%);
+box-shadow:#b4c8d6 0 0 20px;
 
 
 label{
@@ -301,7 +304,18 @@ label{
 input{border:none;
     padding:.5em;
     border-radius:5px;
-box-shadow:inset hsla(0, 0%, 89%, 0.521) 0 0 10px;}
+box-shadow:inset hsla(0, 0%, 89%, 0.521) 0 0 10px;
+
+&:focus{
+   box-shadow:inset hsla(202, 54%, 54%,0.8) 0 0 10px;
+   transition:0.3s;
+}}
+
+fieldset{border:none;
+background-color: $secondary;
+padding:1em;
+border-radius:0.5em;}
+
 
 button:nth-of-type(1){
 position:absolute;

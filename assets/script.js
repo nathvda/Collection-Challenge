@@ -341,47 +341,55 @@ console.log(newtable[i].style.width.value);
  let typeGroupe = document.querySelector('input[name="addType"]:checked').value;
  let nbrMembres = document.getElementById("nbrMembres").value;
  let nbrCaptor = document.getElementById("nbrMembres");
- let membersToAdd = document.getElementById("membersToAdd");
  let champMembres = document.getElementById("fieldMembres");
  let musicImport = document.getElementById("musicImport").value;
 
- let longueur = membersToAdd.querySelectorAll("input").length;
 
   nbrCaptor.addEventListener('click', () => { 
-  
-    longueur = membersToAdd.querySelectorAll("input").length
+   
+    nbrMembres = document.getElementById("nbrMembres").value;
+    let longueur = membersToAdd.querySelectorAll("input").length;
+    
+    for ( let i = longueur ; i < nbrMembres ; i++ ){
+        let membersToAdd = document.getElementById("membersToAdd");
 
-    console.log(longueur);
-    console.log(membersToAdd.children.lastElementChild);
-
-        if(nbrMembres > 0 && longueur < nbrMembres ){
-            for ( let i = 0 ; i < nbrMembres ; i++ ){
+        if(nbrMembres > 0 && (longueur-1) < nbrMembres){
+            let contentMemberToAdd = document.createElement("div");
             let memberAdding = document.createElement("input");
+            let youhou = document.createElement("label");
+            let youhouText = document.createTextNode(`Membre ${i+1}`);
+           
+            contentMemberToAdd.setAttribute("id",`box-${i}`);
             memberAdding.setAttribute("id",`member-${i}`);
-            membersToAdd.appendChild(memberAdding);
-            };
-        } else if (longueur > nbrMembres) { 
-    while (longueur > nbrMembres){
-                    longueur--;
-                    membersToAdd.removeChild(membersToAdd.lastChild);
+            youhou.setAttribute("for",`member-${i}`);
 
-                    };
-        }
+            youhou.appendChild(youhouText);
+            contentMemberToAdd.appendChild(youhou);
+            contentMemberToAdd.appendChild(memberAdding);
+            membersToAdd.appendChild(contentMemberToAdd);
+            } else if (longueur > nbrMembres ) { 
+            
+            let wonderful = longueur;
+
+            while (wonderful >= nbrMembres){
+                    wonderful--;
+                    let idol = document.getElementById(`box-${wonderful}`);
+                    console.log(idol);
+                    membersToAdd.removeChild(div);
+                    console.log(membersToAdd.length);
+                    
+                };
+        } 
+
+        longueur = membersToAdd.querySelectorAll("input").length;
+    };
 
     }
  );
 
 
-
- 
-
-
-
-
- 
-
 window.addEventListener('click', () => {
-console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);})
+/*console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);})*/
 
 
 class NewGroup { 
@@ -403,7 +411,8 @@ class NewGroup {
 }
 
 let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, musicImport);
-console.log(what);
+console.log(what);}
+)
 
 /*createMembers(m){
     let members = [];

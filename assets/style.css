@@ -257,17 +257,20 @@ header h1 {
 #addingNew {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 2em;
   border-radius: 0.5em;
   background-color: hsla(0deg, 0%, 100%, 0.589);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   font-size: 14px;
   width: 50vw;
-  position: absolute;
+  position: fixed;
   flex-wrap: wrap;
   padding-bottom: 4em;
   z-index: 99;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: #b4c8d6 0 0 20px;
 }
 #addingNew label {
   font-weight: bold;
@@ -280,6 +283,16 @@ header h1 {
   padding: 0.5em;
   border-radius: 5px;
   box-shadow: inset hsla(0deg, 0%, 89%, 0.521) 0 0 10px;
+}
+#addingNew input:focus {
+  box-shadow: inset hsla(202deg, 54%, 54%, 0.8) 0 0 10px;
+  transition: 0.3s;
+}
+#addingNew fieldset {
+  border: none;
+  background-color: hsla(0deg, 0%, 100%, 0.589);
+  padding: 1em;
+  border-radius: 0.5em;
 }
 #addingNew button:nth-of-type(1) {
   position: absolute;
