@@ -345,9 +345,14 @@ console.log(newtable[i].style.width.value);
  let champMembres = document.getElementById("fieldMembres");
  let musicImport = document.getElementById("musicImport").value;
 
- nbrCaptor.addEventListener('change', () => { 
+ let longueur = membersToAdd.querySelectorAll("input").length;
 
-    let longueur = membersToAdd.querySelectorAll("input").length;
+  nbrCaptor.addEventListener('click', () => { 
+  
+    longueur = membersToAdd.querySelectorAll("input").length
+
+    console.log(longueur);
+    console.log(membersToAdd.children.lastElementChild);
 
         if(nbrMembres > 0 && longueur < nbrMembres ){
             for ( let i = 0 ; i < nbrMembres ; i++ ){
@@ -355,10 +360,9 @@ console.log(newtable[i].style.width.value);
             memberAdding.setAttribute("id",`member-${i}`);
             membersToAdd.appendChild(memberAdding);
             };
-        }
-            else if (longueur > nbrMembres) { 
-
-                for ( let i = 0 ; i === (longueur-nbrMembres) ; i++ ){
+        } else if (longueur > nbrMembres) { 
+    while (longueur > nbrMembres){
+                    longueur--;
                     membersToAdd.removeChild(membersToAdd.lastChild);
 
                     };
@@ -400,6 +404,7 @@ class NewGroup {
 
 let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, musicImport);
 console.log(what);
+
 /*createMembers(m){
     let members = [];
     for (let i = 0 ; i < m ; i++){

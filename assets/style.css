@@ -267,6 +267,7 @@ header h1 {
   position: absolute;
   flex-wrap: wrap;
   padding-bottom: 4em;
+  z-index: 99;
 }
 #addingNew label {
   font-weight: bold;
