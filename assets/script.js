@@ -1,4 +1,4 @@
-const KpopGroups = [ 
+const KPOPGROUPS = [ 
     { 
         name : "Red Velvet",
         agency : "SM Entertainment",
@@ -171,9 +171,11 @@ const KpopGroups = [
 
 ];
 
+// Sélection de la boîte qui contient mon élément.
+
 let container = document.getElementById("myCollection");
 
-document.getElementById("numberGroup").innerHTML = KpopGroups.length;
+document.getElementById("numberGroup").innerHTML = KPOPGROUPS.length;
 
 function hideGirlGroups(){
   
@@ -189,34 +191,39 @@ switch(element){
     break;
     case "fem":
     for(elem of container.children){
-            elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
+            elem.classList.contains(element) 
+            ? elem.style.display = "flex" 
+            : elem.style.display = "none";
           }      
     break;
     case "masc":
         for(elem of container.children){
-            elem.classList.contains(element) ? elem.style.display = "flex" : elem.style.display = "none";
+            elem.classList.contains(element) 
+            ? elem.style.display = "flex" 
+            : elem.style.display = "none";
           }  
     break;
  }
 }
 
+// boucle de création des éléments.
 
-for (group in KpopGroups){
+for (group in KPOPGROUPS){
 
-let groupBox = document.createElement("section");
-let groupName = document.createElement("h3");
-let groupNameText = document.createTextNode(`${KpopGroups[group]["name"]}`);
-let groupImage = document.createElement("img");
-let groupContent = document.createElement("ul");
-let groupMembers = document.createElement("ul");
-let groupMemberWrap = document.createElement("div");
+  let groupBox = document.createElement("section");
+  let groupName = document.createElement("h3");
+  let groupNameText = document.createTextNode(`${KPOPGROUPS[group]["name"]}`);
+  let groupImage = document.createElement("img");
+  let groupContent = document.createElement("ul");
+  let groupMembers = document.createElement("ul");
+  let groupMemberWrap = document.createElement("div");
 
-let groupButton = document.createElement("button");
-let buttonText = document.createTextNode("Voir les membres");
-groupButton.classList.add("showMember");
+  let groupButton = document.createElement("button");
+  let buttonText = document.createTextNode("Voir les membres");
+  groupButton.classList.add("showMember");
 
-let songSample = document.createElement("audio");
-let musicplayer = document.createElement("button");
+  let songSample = document.createElement("audio");
+  let musicplayer = document.createElement("button");
 
 
 musicplayer.innerHTML = `<i class="bi bi-play-fill"></i>`;
@@ -224,8 +231,8 @@ groupBox.appendChild(musicplayer);
 
 musicplayer.classList.add("player");
 
-songSample.src = `${KpopGroups[group]["sampleSong"]}`;
-songSample.setAttribute("data-song",`${KpopGroups[group]["name"]}`);
+songSample.src = `${KPOPGROUPS[group]["sampleSong"]}`;
+songSample.setAttribute("data-song", `${KPOPGROUPS[group]["name"]}`);
 
 groupBox.appendChild(songSample);
 
@@ -260,10 +267,10 @@ groupButton.addEventListener('click', () => {
 groupButton.appendChild(buttonText);
 groupBox.appendChild(groupButton);
 
-if (KpopGroups[group]["type"] === "Groupe féminin"){
+if (KPOPGROUPS[group]["type"] === "Groupe féminin"){
     groupBox.classList.add("fem");
 
-} else if (KpopGroups[group]["type"] === "Groupe masculin") {
+} else if (KPOPGROUPS[group]["type"] === "Groupe masculin") {
     groupBox.classList.add("masc");
 } else {
     groupBox.classList.add("mix");
@@ -271,19 +278,19 @@ if (KpopGroups[group]["type"] === "Groupe féminin"){
 
 groupContent.classList.add("groupContent");
 
-groupImage.src = KpopGroups[group]["picture"];
+groupImage.src = KPOPGROUPS[group]["picture"];
 
-for (elem in KpopGroups[group]["members"]){
+for (elem in KPOPGROUPS[group]["members"]){
     let person = document.createElement("li");
-    let personText = document.createTextNode(KpopGroups[group]["members"][elem]);
+    let personText = document.createTextNode(KPOPGROUPS[group]["members"][elem]);
     person.appendChild(personText);
     groupMembers.appendChild(person);
 }
 
 groupContent.innerHTML = `
-<li><b>Agence: </b>${KpopGroups[group]["agency"]}</li>
-<li><b>Année de début: </b>${KpopGroups[group]["debutYear"]}</li>
-<li><b>Type: </b>${KpopGroups[group]["type"]}</li>`;
+<li><b>Agence: </b>${KPOPGROUPS[group]["agency"]}</li>
+<li><b>Année de début: </b>${KPOPGROUPS[group]["debutYear"]}</li>
+<li><b>Type: </b>${KPOPGROUPS[group]["type"]}</li>`;
 
 groupName.appendChild(groupNameText);
 groupMemberWrap.appendChild(groupMembers);
@@ -308,7 +315,7 @@ for (let i = 0 ; i < newtable.length ; i++){
        setTimeout(() => {
     newtable[i].style.opacity = `1`;
     
-       } , (100 * i));
+       }, (100 * i));
     } 
 
 });
