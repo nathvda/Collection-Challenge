@@ -86,6 +86,44 @@ header h1 {
   font-size: 1.8em;
 }
 
+.addbutton {
+  position: fixed;
+  right: 5rem;
+  top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100px;
+  border: 0;
+  background-color: hsl(202deg, 72%, 56%);
+  color: white;
+  font-size: 1.5em;
+  transition: 0.4s;
+  transition-delay: 0.2s;
+  z-index: 100;
+}
+
+.clearpage {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100px;
+  border: 0;
+  background-color: hsla(0deg, 0%, 100%, 0.589);
+  color: hsl(202deg, 72%, 56%);
+  font-size: 1.5em;
+  transition: 0.4s;
+  z-index: 100;
+  transition-delay: 0.2s;
+}
+
+.addbutton:hover, .clearpage:hover {
+  transform-origin: center;
+  transform: rotate(180deg);
+  transition: 0.4s;
+}
+
 #myCollection {
   display: grid;
   grid-gap: 1em;
@@ -262,15 +300,15 @@ header h1 {
 }
 .addbutton {
   position: fixed;
-  right: 3rem;
-  top: 3rem;
-  width: 6rem;
-  height: 6rem;
+  right: 1rem;
+  top: 1rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100px;
   border: 0;
   background-color: hsl(202deg, 72%, 56%);
   color: white;
-  font-size: 2em;
+  font-size: 1.5em;
   transition: 0.4s;
   transition-delay: 0.2s;
   z-index: 100;
@@ -278,15 +316,15 @@ header h1 {
 
 .clearpage {
   position: fixed;
-  right: 3rem;
-  top: 10rem;
-  width: 6rem;
-  height: 6rem;
+  right: 1rem;
+  top: 5rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100px;
   border: 0;
   background-color: hsla(0deg, 0%, 100%, 0.589);
   color: hsl(202deg, 72%, 56%);
-  font-size: 2em;
+  font-size: 1.5em;
   transition: 0.4s;
   z-index: 100;
   transition-delay: 0.2s;
@@ -388,5 +426,40 @@ header h1 {
   }
   .groupItem:hover h3 {
     background-color: orange;
+  }
+  .addbutton {
+    position: fixed;
+    right: 3rem;
+    top: 3rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100px;
+    border: 0;
+    background-color: hsl(202deg, 72%, 56%);
+    color: white;
+    font-size: 2em;
+    transition: 0.4s;
+    transition-delay: 0.2s;
+    z-index: 100;
+  }
+  .clearpage {
+    position: fixed;
+    right: 3rem;
+    top: 10rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100px;
+    border: 0;
+    background-color: hsla(0deg, 0%, 100%, 0.589);
+    color: hsl(202deg, 72%, 56%);
+    font-size: 2em;
+    transition: 0.4s;
+    z-index: 100;
+    transition-delay: 0.2s;
+  }
+  .addbutton:hover, .clearpage:hover {
+    transform-origin: center;
+    transform: rotate(180deg);
+    transition: 0.4s;
   }
 }/*# sourceMappingURL=style.css.map */
