@@ -47,6 +47,7 @@ header .buttonbox {
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
   grid-gap: 2em;
+  font-size: 14px;
 }
 header .buttonbox label {
   position: relative;
@@ -63,6 +64,9 @@ header .buttonbox label {
   font-family: inter;
   text-transform: uppercase;
   transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header .buttonbox input[type=radio] {
   position: absolute;
@@ -132,6 +136,7 @@ header h1 {
   grid-gap: 1em;
   padding: 1em;
   background-color: white;
+  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
@@ -160,6 +165,7 @@ header h1 {
   transition: 0.5s;
   bottom: 0;
   right: 0;
+  z-index: 8;
   left: 0;
 }
 #myCollection .groupItem .hidden {
@@ -209,7 +215,7 @@ header h1 {
   font-size: 1.5em;
   bottom: 2em;
   right: 2em;
-  z-index: 4;
+  z-index: 3;
   color: white;
   background-color: hsl(202deg, 72%, 56%);
 }
