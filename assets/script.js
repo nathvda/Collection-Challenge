@@ -1,4 +1,4 @@
-const KpopGroups = [ 
+let KPOPGROUPS = [ 
     { 
         name : "Red Velvet",
         agency : "SM Entertainment",
@@ -180,7 +180,6 @@ let container = document.getElementById("myCollection");
 function groupSelector(){
   
  let element = document.querySelector('input[name="display"]:checked').value; 
-switch(element){
 
     switch (element) {
         case "all":
@@ -217,8 +216,8 @@ function loadGroups(){
 
     let loadingGroup = localStorage.getItem("MyCollection");
 
-    KpopGroups = JSON.parse(loadingGroup);
-    document.getElementById("numberGroup").innerHTML = KpopGroups.length;
+    KPOPGROUPS = JSON.parse(loadingGroup);
+    document.getElementById("numberGroup").innerHTML = KPOPGROUPS.length;
 
 for (group in KPOPGROUPS) {
 
@@ -422,7 +421,7 @@ console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres
 )
 
 function reinitializePage(){
-    KpopGroups = [ 
+    KPOPGROUPS = [ 
         { 
             name : "Red Velvet",
             agency : "SM Entertainment",
@@ -593,7 +592,7 @@ function reinitializePage(){
             sampleSong : "./assets/songs/ab6ix.mp3",
         },
         ];   
-    localStorage.setItem("MyCollection", JSON.stringify(KpopGroups));
+    localStorage.setItem("MyCollection", JSON.stringify(KPOPGROUPS));
     window.location.reload();
 }
 
@@ -623,14 +622,14 @@ class NewGroup {
 }
 
 function saveGroups(){
-    localStorage.setItem("MyCollection", JSON.stringify(KpopGroups));
+    localStorage.setItem("MyCollection", JSON.stringify(KPOPGROUPS));
 
 }
 
 function addNewGroup(){
     let what = new NewGroup(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, createMembers(), musicImport);
     console.log(what);
-    KpopGroups.push(what);
+    KPOPGROUPS.push(what);
 
     saveGroups();
     window.location.reload();
