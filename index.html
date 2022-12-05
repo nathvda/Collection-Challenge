@@ -17,7 +17,7 @@
         <h1>My Kpop Group Collection</h1>
     
     <p>Welcome to this page where I will share with you the groups I like to listen.
-             There are currently <span id="numberGroup"></span> groups displayed on this page.</p>
+             There are currently <span id="numberGroup"></span> groups displayed on this page. You can use the menu on the side to add new groups or reset the page.</p>
             <form class="buttonbox" name="display" onclick="groupSelector()">
                 <label for="all">Tous</label>
                 <input name="display" id="all" type="radio" value="all">
@@ -29,6 +29,8 @@
     </header>
 
     <article id="myCollection"></article>
+<button onclick="reinitializePage();" class="clearpage"><i class="bi bi-backspace"></i></button>
+
 <button onclick="showForm();" class="addbutton"><i class="bi bi-patch-plus-fill"></i></button>
     <form id="addingNew" class="slider">
         <label for="nomGroupe">Nom du groupe</label>
@@ -38,7 +40,7 @@
         <label for="debutYear">Année de début</label>
         <input type="text" id="debutYear">
         <label for="lienPhoto">Photo du groupe</label>
-        <input type="file" id="lienPhoto" accept=".jpg, .png">
+        <input type="text" id="lienPhoto">
         <label for="typeGroupe">Type de groupe</label>
         <fieldset id="typeGroupe">
         <label for="addFem">Féminin</label>
@@ -53,7 +55,7 @@
         <div id="membersToAdd"></div>
         </fieldset>
         <label for="musicImport">Extrait musical</label>
-        <input type="file" id="musicImport" accept=".mp3">
+        <input type="text" id="musicImport">
         <button type="button" onclick="addNewGroup();">Ajouter</button>
         <button type="reset">Réinitialiser</button>
     </form>

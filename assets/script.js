@@ -204,15 +204,13 @@ function showForm(){
     document.getElementById("addingNew").classList.toggle('slider');
 }
 
+
 function loadGroups(){
 
-
     let loadingGroup = localStorage.getItem("MyCollection");
-    console.log(loadingGroup);
 
     KpopGroups = JSON.parse(loadingGroup);
     document.getElementById("numberGroup").innerHTML = KpopGroups.length;
-
 
 for (group in KpopGroups){
 
@@ -353,7 +351,7 @@ console.log(newtable[i].style.width.value);
  let nomGroupe = document.getElementById("nomGroupe").value;
  let companyName = document.getElementById("companyName").value;
  let debutYear = document.getElementById("debutYear").value;
- let lienPhoto = document.getElementById("companyName").value;
+ let lienPhoto = document.getElementById("lienPhoto").value;
  let typeGroupe = document.querySelector('input[name="addType"]:checked').value;
  let nbrMembres = document.getElementById("nbrMembres").value;
  let nbrCaptor = document.getElementById("nbrMembres");
@@ -407,6 +405,183 @@ window.addEventListener('click', () => {
 console.log(nomGroupe, companyName, debutYear, lienPhoto, typeGroupe, nbrMembres, musicImport);}
 )
 
+function reinitializePage(){
+    KpopGroups = [ 
+        { 
+            name : "Red Velvet",
+            agency : "SM Entertainment",
+            debutYear : 2014,
+            picture : "./assets/images/redvelvet.jpg",
+            type : "Groupe féminin",
+            members : [ 
+                "Irene", 
+                "Wendy",
+                "Yeri",
+                "Seulgi",
+                "Joy"
+            ],
+            sampleSong : "./assets/songs/redvelvet.mp3",
+        },
+        { 
+            name : "Ateez",
+            agency : "KQ entertainment",
+            debutYear : 2018,
+            picture : "./assets/images/ateez.jpg",
+            type : "Groupe masculin",
+            members : [ 
+                "Jongho", 
+                "Yeosang",
+                "Mingi",
+                "Hongjoong",
+                "Yunho",
+                "San",
+                "Seonghwa",
+                "Wooyoung"
+            ],
+            sampleSong : "./assets/songs/ateez.mp3",
+         },
+        { 
+            name : "Monsta X",
+            agency : "Starship",
+            debutYear : 2015,
+            picture : "./assets/images/monstax.png",
+            type : "Groupe masculin",
+            members : [ 
+                "Hyungwon", 
+                "Kihyun",
+                "Jooheon",
+                "Shownu",
+                "IM",
+            ],
+            sampleSong : "./assets/songs/monstaX.mp3",
+        }, 
+         { 
+            name : "Twice",
+            agency : "JYP",
+            debutYear : 2015,
+            picture : "./assets/images/twice.jpg",
+            type : "Groupe féminin",
+            members : [ 
+                "Nayeon", 
+                "Momo",
+                "Sana",
+                "Tzuyu",
+                "Jeongyeon",
+                "Jihyo",
+                "Mina",
+                "Chaeyoung",
+                "Dahyun"
+            ],
+            sampleSong : "./assets/songs/twice.mp3",
+        },
+        { 
+            name : "Mamamoo",
+            agency : "RBW Entertainment",
+            debutYear : 2014,
+            picture : "./assets/images/mamamoo.jpg",
+            type : "Groupe féminin",
+            members : [ 
+                "Hwasa", 
+                "Wheein",
+                "Moonbyul",
+                "Solar",
+            ],
+            sampleSong : "./assets/songs/mamamoo.mp3",
+        },
+        { 
+            name : "Seventeen",
+            agency : "HYBE",
+            debutYear : 2015,
+            picture : "./assets/images/svt.jpg",
+            type : "Groupe masculin",
+            members : [ 
+                "Mingyu", 
+                "Jeonghan",
+                "Wonwoo",
+                "Solar",
+                "Hoshi",
+                "Joshua",
+                "Jun",
+                "The8",
+                "DK",
+                "Woozi",
+                "S.Coups",
+                "Vernon",
+                "Seungkwan",
+                "Dino"
+            ],
+            sampleSong : "./assets/songs/seventeen.mp3",
+        }, 
+        { 
+            name : "Everglow",
+            agency : "YueHua Entertainment",
+            debutYear : 2019,
+            picture : "./assets/images/everglow.jpg",
+            type : "Groupe féminin",
+            members : [ 
+                "Yiren", 
+                "Aisha",
+                "Sihyeon",
+                "Onda",
+                "Mia",
+                "E:U",
+            ],
+            sampleSong : "./assets/songs/everglow.mp3",
+        },
+        { 
+            name : "Stray Kids",
+            agency : "JYP Entertainment",
+            debutYear : 2018,
+            picture : "./assets/images/straykids.jpg",
+            type : "Groupe masculin",
+            members : [ 
+                "Hyunjin", 
+                "Felix",
+                "Bang Chan",
+                "Lee Know",
+                "IN",
+                "Han",
+                "Seungmin",
+                "Changbin",
+            ],
+            sampleSong : "./assets/songs/skz.mp3",
+        },
+        { 
+            name : "Oneus",
+            agency : "RBW Entertainment",
+            debutYear : 2019,
+            picture : "./assets/images/oneus.jpg",
+            type : "Groupe masculin",
+            members : [ 
+                "Xion", 
+                "Hwanwoong",
+                "Seoho",
+                "Leedo",
+                "Keonhee",
+                "Ravn"
+            ],
+            sampleSong : "./assets/songs/oneus.mp3",
+        },
+        { 
+            name : "Ab6ix",
+            agency : "Brand New Music",
+            debutYear : 2019,
+            picture : "./assets/images/ab6ix.jpg",
+            type : "Groupe masculin",
+            members : [ 
+                "Jeon Woong", 
+                "Dongyun",
+                "Daehwi",
+                "Woojin",
+            ],
+            sampleSong : "./assets/songs/ab6ix.mp3",
+        },
+    
+    ];   
+    localStorage.setItem("MyCollection", JSON.stringify(KpopGroups));
+    window.location.reload();
+}
+
 function createMembers(){
 
     let pokemon = membersToAdd.getElementsByTagName("div");
@@ -421,7 +596,7 @@ function createMembers(){
 }
 
 class NewGroup { 
-    constructor(name, agency, debutYear, picture, type, members){
+    constructor(name, agency, debutYear, picture, type, members, musicImport){
         this.name = name,
         this.agency = agency,
         this.debutYear = debutYear,
@@ -442,8 +617,8 @@ function addNewGroup(){
     console.log(what);
     KpopGroups.push(what);
 
-    console.log(KpopGroups);
     saveGroups();
+    window.location.reload();
     let newtable = container.children;
 container.style.position = `relative`; 
 
@@ -453,9 +628,4 @@ for (let i = 0 ; i < newtable.length ; i++){
     
        } , (100 * i));
     } 
-
-    
-
 }
-
-
