@@ -209,7 +209,8 @@ function groupSelector(){
 // Loops and creates each card.
 function showForm(){
     document.getElementById("addingNew").classList.toggle('slider');
-}
+} 
+
 
 
 function loadGroups(){
